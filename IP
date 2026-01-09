@@ -18,6 +18,18 @@ ip a
     inet6 fe80::215:5dff:fe6b:3879/64 scope link
        valid_lft forever preferred_lft forever
 ```
+## ip a
+ifconfigコマンドの後継
+LinuxのネットワークインタフェースのIPアドレス情報を表示するコマンド
+## <LOOPBACK,UP,LOWER_UP> フラグ
+| フラグ       | 意味                       |
+| --------- | ------------------------ |
+| UP        | 管理的に有効（`ip link set up`） |
+| LOWER_UP  | 物理的にリンクが生きている            |
+| BROADCAST | ブロードキャスト可能               |
+| MULTICAST | マルチキャスト可能                |
+| LOOPBACK  | ループバックIF                 |
+
 ## mtu 65536
 MTU（Maximum Transmission Unit）が65536バイトに設定されている
 最大転送単位のこと
