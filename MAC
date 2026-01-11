@@ -11,3 +11,20 @@ ip link
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
     link/ether 00:15:5d:6b:3b:8c brd ff:ff:ff:ff:ff:ff
 ```
+
+| 部分      | 意味              |
+| ------- | --------------- |
+| 上位24bit | **OUI**（ベンダ識別子） |
+| 下位24bit | ベンダ内での個体識別      |
+
+ff:ff:ff:ff:ff:ff
+ブロードキャスト
+## ARPとMACの関係
++ IPは分かるがMACが分からない
++ ARP Request（ブロードキャスト）
++ 対象がARP Reply（ユニキャスト）
++ ARPテーブルにキャッシュ
+
+各端末で受信したらMACヘッダーを剥がして、転送時に付与する。
+
+MACアドレスは簡単に偽装できるので、MACアドレスフィルタリングのセキュリティ効果は限定的
