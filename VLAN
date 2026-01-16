@@ -2,3 +2,6 @@
 # VLAN (Virtual LAN)
 ブロードキャストするポートをグループ化する機能
 L2スイッチの各ポートにVLAN IDを割り当てる
+## VLANタグ（802.1Q）
+Ethernetフレームに VLAN IDを埋め込む
+## ネイティブVLAN
