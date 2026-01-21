@@ -41,3 +41,38 @@ IPv4 ルート テーブル
 固定ルート:
   なし
 ```
+
+## ルーティングテーブル
+```
+ip route show
+default via 192.168.112.1 dev eth0 proto kernel
+192.168.112.0/20 dev eth0 proto kernel scope link src 192.168.125.206
+```
+### 追加
+```
+$ sudo ip route add 10.0.0.0/24 via 192.168.112.1 dev eth0
+$ ip route
+default via 192.168.112.1 dev eth0 proto kernel
+10.0.0.0/24 via 192.168.112.1 dev eth0
+192.168.112.0/20 dev eth0 proto kernel scope link src 192.168.125.206
+
+$ traceroute 10.0.0.5
+traceroute to 10.0.0.5 (10.0.0.5), 30 hops max, 60 byte packets
+ 1  tokunaga.mshome.net (192.168.112.1)  0.536 ms  0.513 ms  0.506 ms
+ 2  router.askey.net (192.168.0.1)  6.830 ms  6.825 ms  6.818 ms
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  * * *
+ 7  * * *
+```
+ルーティングはできているが、ルータ到達時点でルーティング設定が存在しないため破棄される
+192.168.0.0/24   → LAN
+0.0.0.0/0        → WAN
+### 削除
+```
+$ sudo ip route del 10.0.0.0/24
+$ ip route
+default via 192.168.112.1 dev eth0 proto kernel
+192.168.112.0/20 dev eth0 proto kernel scope link src 192.168.125.206
+```
