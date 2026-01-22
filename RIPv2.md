@@ -1,5 +1,5 @@
 2026-01-22
-# RIPv2
+# RIPv2 （Routing Information Protocol）
 ルーティングアルゴリズム：ディスタンスベクタ型
 メトリック：ホップ数
 更新間隔：定期的
