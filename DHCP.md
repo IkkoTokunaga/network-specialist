@@ -1,0 +1,10 @@
+2026-01-24
+# DHCP（Dynamic Host Configuration Protocol）
+IPアドレスが設定されていない状態で通信を行うため、ブロードキャストを駆使する
+1. クライアントがDHCPサーバを探すため「DHCP Discover」をブロードキャストする
+2. 「DHCP Discover」を受け取ったDHCPサーバは「DHCP Offer」でIPアドレスを提案する
+3. 「DHCP Offer」を受け取ったクライアントは、提案を受け入れる「DHCP Request」をブロードキャストで返却する
+    ※複数のDHCPサーバーからの提案を受け取った場合は、最も早いものを受け入れる
+4. 「DHCP Request」を受け取ったDHCPサーバは「DHCP Ack」をブロードキャストで返却して、IPアドレスを渡す
+5. 「DHCP Ack」を受け取ったクライアントはIPアドレスを設定する
+    ※リース時間が設定されており、リース時間が経過したら設定されているIPアドレスを解放し、DHCPサーバに返却する
