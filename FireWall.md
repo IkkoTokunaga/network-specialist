@@ -13,7 +13,19 @@ FWの持つ通信制御機能のこと
 + 送信元ポート番号
 + 宛先ポート番号
 + 通信制御（アクション）
+```
+sudo iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
 
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+DROP       icmp --  anywhere             anywhere
+```
+上記はICMPを拒否した
 ## コネクションテーブル
 通信を管理する。
 自身を経由するコネクションの情報をメモリ内の表で管理する
