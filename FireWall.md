@@ -51,3 +51,12 @@ sudo iptables -D OUTPUT 1
 + 宛先ポート番号
 + コネクションの状態
 + アイドルタイムアウト
+### conntrack
+```
+# インストール
+sudo apt install conntrack
+# コネクションテーブルを確認
+sudo conntrack -L
+# コネクションテーブルの監視
+sudo conntrack -E
+```
