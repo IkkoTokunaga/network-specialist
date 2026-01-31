@@ -49,6 +49,8 @@ sudo systemctl status nginx
      Memory: 11.0M
         CPU: 72ms
      CGroup: /system.slice/nginx.service
+
+
 ## 疎通確認
 curl -i http://192.168.125.206:8080
 HTTP/1.1 200 OK
