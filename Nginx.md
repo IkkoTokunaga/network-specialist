@@ -64,4 +64,72 @@ Content-Type: text/plain
 nginx test ok
 ```
 ## リバースプロキシ
-## 負荷分散
++ 負荷分散（ロードバランス）
++ セキュリティ向上（直接アプリに触らせない）
++ SSL終端
++ URL振り分け
++ 静的ファイル高速配信
+```
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+| ヘッダ               | 役割           |
+| ----------------- | ------------ |
+| Host              | 元のドメインを保持    |
+| X-Real-IP         | 本当のクライアントIP  |
+| X-Forwarded-For   | Proxyチェーン    |
+| X-Forwarded-Proto | http / https |
+### SSL終端
+アプリ側でHTTPS考えなくていいうえに、証明書管理もNginxだけ、パフォーマンスも良い
+```
+server {
+    listen 443 ssl;
+    ssl_certificate     /path/fullchain.pem;
+    ssl_certificate_key /path/privkey.pem;
+
+    location / {
+        proxy_pass http://backend;
+    }
+}
+```
+### 負荷分散
+ラウンドロビン
+```
+upstream app {
+    server 10.0.0.1:8000;
+    server 10.0.0.2:8000;
+}
+
+server {
+    location / {
+        proxy_pass http://app;
+    }
+}
+```
+比重を変更
+```
+upstream app {
+    server 10.0.0.1 weight=3;
+    server 10.0.0.2 weight=1;
+}
+```
+セッション維持
+```
+upstream app {
+    ip_hash;
+    server 10.0.0.1;
+    server 10.0.0.2;
+}
+```
+
