@@ -14,5 +14,12 @@ OIDに人間の意味を与える説明書
 ## SNMP Get
 SNMPマネージャはSNMPエージェントにOIDを含めた形でGetRequestを送信する
 GetRequestはUDPのユニキャストで行われ、そのポート番号は「161」です
-それに対してSNMPエージェントは指定されたOIDの値をGetResponseをして返します
-次の情報が欲しい場合はSNMPマネージャはGetNextRequestを次にほしいOIDを含めて送信し、SNMPエージェントはGetResponseを返却します
+それに対してSNMPエージェントは指定されたOIDの値をGetResponseをして返す
+次の情報が欲しい場合はSNMPマネージャはGetNextRequestを次にほしいOIDを含めて送信し、SNMPエージェントはGetResponseを返却
+## SNMP Set
+基本的にはGetと同じ動き
+OIDの値を更新して、その値を返却する
+## SNMP Trap
+SNMPエージェントはOIDの値に特定の変化があった場合に、それを障害と検知してSNMPマネージャにTrapを送信
+TrapはUDPのユニキャストで送信され、そのポート番号は「162」
+GetとSetはマネージャ発信だったが、Trapはエージェント発信である
