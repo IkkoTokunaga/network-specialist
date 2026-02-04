@@ -12,3 +12,7 @@ SNMPで取得できる1つ1つの値を特定するための番号付き住所
 ### MIB（Management infomation Base）
 OIDに人間の意味を与える説明書
 ## SNMP Get
+SNMPマネージャはSNMPエージェントにOIDを含めた形でGetRequestを送信する
+GetRequestはUDPのユニキャストで行われ、そのポート番号は「161」です
+それに対してSNMPエージェントは指定されたOIDの値をGetResponseをして返します
+次の情報が欲しい場合はSNMPマネージャはGetNextRequestを次にほしいOIDを含めて送信し、SNMPエージェントはGetResponseを返却します
