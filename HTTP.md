@@ -16,3 +16,4 @@ GET/POSTが有名
 | OPTIONS | 利用可能なメソッドの取得  |
 | TRACE   | リクエスト経路の確認    |
 | CONNECT | 通信トンネルの確立     |
+## http header
