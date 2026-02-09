@@ -1,5 +1,6 @@
 2026-01-05
-DNSについて
+# DNS（Domain Name System）
+IPアドレスとドメイン名を名前解決を行う機能の総称
 ```
 dig www.google.com
 
