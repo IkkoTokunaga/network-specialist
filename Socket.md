@@ -14,3 +14,17 @@
 | `accept()`  | 接続を受け取る     |
 | `recv()`    | データ受信       |
 | `sendall()` | データ送信       |
+## 例
+Nginx→php-fpm の王道ルート
+ブラウザ
+   ↓ HTTP
+nginx (:80)
+   ↓ FastCGI（内部通信）
+php-fpm (:9000)
+   ↓
+PHP実行
+   ↓
+FastCGIレスポンス
+nginx
+   ↓ HTTPレスポンス
+ブラウザ
