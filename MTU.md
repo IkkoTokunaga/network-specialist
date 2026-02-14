@@ -1,4 +1,3 @@
-# mtu 
 # MTU（Maximum Transmission Unit）
 最大転送単位のこと
 + ケーブル
