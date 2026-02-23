@@ -1,7 +1,7 @@
 2026-02-23
 # MDI（Media Dependent Interface）
 主に端末側に配置されるポート配線
-## MDI-X（MDI- Crossover）
+## MDI-X（MDI-X Crossover）
 スイッチ側に配置されるポート配線
 MDIとは送受信の配線が逆になる
 ## クロスケーブル
