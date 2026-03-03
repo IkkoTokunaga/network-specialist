@@ -63,3 +63,9 @@ TCPやUDPのようにデータを送っているわけではない
 | Data            | 任意データ           |
 ## PMTUDブラックホール問題
 送信側でIPヘッダーに「DF＝１」（分割禁止）を立てて送信し、かつフラグメントが起きた場合にICMPで適切なMTUの値を通知するが、FWで遮断した場合はタイムアウトとなって原因が分からず再送が繰り返されるといった問題
+特にIPv6ではフラグメント禁止なのでICMP必須
+FWのルールで全てのICMPの通信を遮断するのではなく、必要なICMPを許可する運用が正しい
+- Echo Reply（DDoS対策で制限を入れる）
+- Destination Unreachable
+- Fragmentation Needed
+- Time Exceeded
