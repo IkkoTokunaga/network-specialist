@@ -1,20 +1,12 @@
 2026-01-25
 # ICMP（Internet Control Message Protocal）
-ネットワーク層の通信確認に使用するプロトコル
+IP通信のエラー通知や制御情報を伝えるためのプロトコル
 トラブルシューティング時にとりあえずpingを行い、ネットワーク層の疎通を確認してうまくいけば、トランスポート層→セッション層→アプリケーション層と検証を行い、逆にうまくいかない場合はネットワーク層→データリンク層→物理層と下位に向かって検証をしていく
 ```
 ping google.com
 PING google.com (172.217.174.110) 56(84) bytes of data.
 64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=1 ttl=117 time=21.5 ms
 64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=2 ttl=117 time=27.0 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=3 ttl=117 time=23.2 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=4 ttl=117 time=23.4 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=5 ttl=117 time=21.7 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=6 ttl=117 time=22.8 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=7 ttl=117 time=23.9 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=8 ttl=117 time=21.5 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=9 ttl=117 time=23.0 ms
-64 bytes from nrt12s28-in-f14.1e100.net (172.217.174.110): icmp_seq=10 ttl=117 time=22.0 ms
 ```
 TCPでもUDPでもなくICMPとして存在する
 ## タイプとコード
@@ -59,3 +51,6 @@ ping: local error: message too long, mtu=1500
 ```
 pingは分かりやすいようにメッセージに変換して表示していますね！
 いちいち調べなくてもいいから助かる！
+## ICMPヘッダ
+TCPやUDPのようにデータを送っているわけではない
+イーサネットフレームとIPヘッダーがあり、その中にICMPヘッダー+データ（Type 8: Echo Request）でリクエストしている
