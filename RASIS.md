@@ -7,3 +7,5 @@
 稼働率＝MTBF/MTBF＋MTTR（Mean Time To Repair）平均修理時間
 ## S（Serviceability）
 保守性。MTTR。障害が発生した際の平均復旧時間
+## I（Intergrity）
+保全性。データの過失や故意によって、喪失/改ざんされる可能性。特に指標はない
