@@ -5,3 +5,5 @@
 ## A（Avaliability）
 可用性を表す。稼働率が主な尺度
 稼働率＝MTBF/MTBF＋MTTR（Mean Time To Repair）平均修理時間
+## S（Serviceability）
+保守性。MTTR。障害が発生した際の平均復旧時間
